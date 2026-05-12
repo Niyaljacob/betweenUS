@@ -14,7 +14,7 @@ class BetweenUsButton extends StatelessWidget {
   });
 
   final String text;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   final IconData? icon;
   final LinearGradient? gradient;
   final double height;

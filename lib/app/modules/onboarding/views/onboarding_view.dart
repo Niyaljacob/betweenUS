@@ -1,3 +1,4 @@
+import 'package:between_us/app/routes/app_routes.dart';
 import 'package:between_us/app/widgets/between_us_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -80,7 +81,7 @@ class OnboardingView extends GetView<OnboardingController> {
               BetweenUsButton(
                 text: 'Get Started',
                 onTap: () {
-                  controller.onGetStarted;
+                  Get.toNamed(Routes.CONNECT);
                 },
               ),
 
