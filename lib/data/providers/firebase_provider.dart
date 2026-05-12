@@ -19,6 +19,12 @@ class FirebaseProvider {
   }
 
   Future<void> saveConnection(String userId, String partnerId) async {
-    await _db.collection('users').doc(userId).set({'partnerId': partnerId});
+    await _db.collection('users').doc(userId).set({
+      'partnerId': partnerId,
+    }, SetOptions(merge: true));
+  }
+
+  Future<DocumentSnapshot> getUser(String userId) {
+    return _db.collection('users').doc(userId).get();
   }
 }

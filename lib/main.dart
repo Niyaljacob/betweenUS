@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: Routes.ONBOARDING,
+          initialRoute: Routes.SPLASH,
           getPages: AppPages.routes,
         );
       },
