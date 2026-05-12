@@ -20,7 +20,6 @@ class HomeController extends GetxController {
 
     if (doc.exists) {
       partnerId.value = doc['partnerId'];
-      print("Partner: ${partnerId.value}");
     }
   }
 }

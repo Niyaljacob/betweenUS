@@ -17,23 +17,16 @@ class ConnectController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    listenForConnection(); // 🔥 important
+    listenForConnection();
   }
 
   void createCode() async {
-    print("User: ${_repo.userId}");
-
     final code = await _repo.createCode();
-
-    print("Generated: $code");
-
     generatedCode.value = code;
   }
 
   void joinCode() async {
     await _repo.joinCode(enteredCode.value.trim());
-    // ❌ REMOVE manual navigation
-    // Get.offAllNamed(Routes.HOME);
   }
 
   void listenForConnection() {
@@ -44,9 +37,6 @@ class ConnectController extends GetxController {
         .listen((doc) {
           if (!isNavigated && doc.exists && doc.data()?['partnerId'] != null) {
             isNavigated = true;
-
-            print("Connected! Navigating to Home");
-
             Get.offAllNamed(Routes.HOME);
           }
         });

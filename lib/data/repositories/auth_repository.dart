@@ -6,7 +6,6 @@ class AuthRepository {
   Future<void> loginAnonymously() async {
     if (_auth.currentUser == null) {
       await _auth.signInAnonymously();
-      print("✅ Anonymous login success");
     }
   }
 

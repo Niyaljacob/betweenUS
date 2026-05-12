@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:get/get.dart';
 import '../providers/firebase_provider.dart';
 import 'auth_repository.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class ConnectRepository {
   final FirebaseProvider _provider = FirebaseProvider();
@@ -9,10 +10,16 @@ class ConnectRepository {
   String get userId => _auth.userId;
 
   String generateCode() {
-    const chars = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
+    final chars = dotenv.env['CODE_CHARS']!;
+    final length = int.parse(dotenv.env['CODE_LENGTH']!);
+
     final rand = Random();
+
     return String.fromCharCodes(
-      Iterable.generate(6, (_) => chars.codeUnitAt(rand.nextInt(chars.length))),
+      Iterable.generate(
+        length,
+        (_) => chars.codeUnitAt(rand.nextInt(chars.length)),
+      ),
     );
   }
 

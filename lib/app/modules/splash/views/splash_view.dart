@@ -26,7 +26,7 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
   void initState() {
     super.initState();
 
-    // 🎯 Logo Animation
+    //  Logo Animation
     _logoController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 1200),
@@ -41,7 +41,7 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
       end: 0.0,
     ).animate(CurvedAnimation(parent: _logoController, curve: Curves.easeOut));
 
-    // 🎯 Text Animation
+    // Text Animation
     _textController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 800),
@@ -49,7 +49,7 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
 
     textOpacity = Tween(begin: 0.0, end: 1.0).animate(_textController);
 
-    // 🔥 Start animation sequence
+    // Start animation sequence
     startAnimation();
   }
 
@@ -83,7 +83,6 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
 
       return data?['partnerId'] != null;
     } catch (e) {
-      print("Splash error: $e");
       return false;
     }
   }
@@ -104,7 +103,7 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // 🔥 Animated Logo
+            //  Animated Logo
             AnimatedBuilder(
               animation: _logoController,
               builder: (context, child) {
@@ -116,7 +115,7 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
                       height: 120.h,
                       width: 120.w,
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: AppColors.white,
                         borderRadius: BorderRadius.circular(30.r),
                       ),
                       child: Icon(
@@ -132,7 +131,7 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
 
             SizedBox(height: 30.h),
 
-            // 🔥 Text Fade
+            //  Text Fade
             FadeTransition(
               opacity: textOpacity,
               child: Column(
@@ -140,7 +139,7 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
                   Text(
                     "Moments",
                     style: TextStyle(
-                      color: Colors.white,
+                      color: AppColors.white,
                       fontSize: 28.sp,
                       fontWeight: FontWeight.bold,
                     ),
